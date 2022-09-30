@@ -3,8 +3,8 @@ env:
   es2021: true
   node: true
 extends:
+  - eslint:recommended
   - plugin:react/recommended
-  - standard
 overrides: []
 parserOptions:
   ecmaVersion: latest
@@ -12,3 +12,6 @@ parserOptions:
 plugins:
   - react
 rules: {}
+settings:
+  react:
+    version: 18.2.0
