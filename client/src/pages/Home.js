@@ -1,7 +1,7 @@
 import Nav from '../components/Nav'
 
 function Home() {
-    const variableToDelete = 2
+    const variableToDelete = 3
     
     return(
         <>  
