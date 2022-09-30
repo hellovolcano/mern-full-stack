@@ -3,9 +3,9 @@ name: Lint workflow
 # Trigger workflow on all pull requests
 on:
   pull_request:
-  branches:
-    - dev
-    - main
+    branches:
+      - dev
+      - main
 # Jobs to carry out
 jobs:
   test:
