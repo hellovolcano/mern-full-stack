@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose')
 const riffSchema = require('./Riff')
+const dateFormat = require('../utils/dateFormat');
 
 const poemSchema = new Schema(
     {
@@ -11,14 +12,20 @@ const poemSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now,
+            get: timestamp => dateFormat(timestamp)
         },
         username: {
             type: String,
             required: true
         },
         riffs: [riffSchema]
-    }
+    },
+    {
+        toJSON: {
+          getters: true
+        }
+      }
 )
 
 const Poem = model('Poem', poemSchema)
