@@ -2,6 +2,7 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { setContext } from '@apollo/client/link/context';
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -33,8 +34,85 @@ const client = new ApolloClient({
 })
 
 function App() {
+
+  const theme = createTheme({
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#3f51b5',
+      },
+      secondary: {
+        main: '#f50057',
+      },
+      background: {
+        default: '#82c561',
+      },
+    },
+    overrides: {
+      MuiButton: {
+        root: {
+          background: 'linear-gradient(45deg, #66454f 30%, #303b47 90%)',
+          border: 0,
+          borderRadius: 3,
+          boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+          color: 'white',
+          height: 48,
+          padding: '0 30px',
+        },
+      },
+    },
+    typography: {
+      h1: {
+        fontFamily: 'Amatic SC',
+        fontSize: '6.2rem',
+      },
+      h2: {
+        fontFamily: 'Amatic SC',
+        fontSize: '3.7rem',
+      },
+      body1: {
+        fontFamily: 'Poppins',
+      },
+      body2: {
+        fontFamily: 'Poppins',
+      },
+      button: {
+        fontFamily: 'Poppins',
+      },
+      caption: {
+        fontFamily: 'Poppins',
+      },
+      overline: {
+        fontFamily: 'Poppins',
+      },
+      subtitle2: {
+        fontFamily: 'Poppins',
+      },
+      subtitle1: {
+        fontFamily: 'Poppins',
+      },
+      h6: {
+        fontFamily: 'Amatic SC',
+        fontSize: '1.6rem',
+      },
+      h5: {
+        fontFamily: 'Amatic SC',
+        fontSize: '1.7rem',
+      },
+      h4: {
+        fontFamily: 'Amatic SC',
+        fontSize: '2.3rem',
+      },
+      h3: {
+        fontFamily: 'Amatic SC',
+        fontSize: '3.2rem',
+      },
+    },
+  })
+
   return (
     <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
       <Router>
           <div className='flex-column justify-flex-start min-100-vh'>
             <Header />
@@ -55,8 +133,8 @@ function App() {
             <Footer />
           </div>
       </Router>
-      
-    </ApolloProvider>  
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
 
