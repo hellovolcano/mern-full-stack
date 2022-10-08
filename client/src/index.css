@@ -1,13 +1,91 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #303b47;
+  --secondary-color: #66454f;
+  --highlight: #666445;
+  --white: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white)
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Generic Heading Styles */
+h1, h2, h3 {
+  font-family: 'Amatic SC', sans-serif;
+}
+
+h2 {
+  font-size: 48px;
+  color: var(--white)
+}
+
+h3 {
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Header Styles */
+
+header h1 {
+  padding-left: 25px;
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  justify-content: flex-start;
+  color: var(--white);
+  background-position: 80%;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 15px;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  margin: 10px 20px 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  display: inline;
+  list-style-type: none;
+  /* flex-basis: 200px; */
+  padding: 15px 20px;
+  opacity: 100%;
+}
+
+ul li a {
+  text-decoration: none;
+  opacity: 100%;
+  padding: 10px;
+  display: block;
+}
+
+nav ul li a {
+  color: var(--white)
+}
+
+/* main content section styles */
+.main-content-wrapper {
+  width: 85%;
+}
+
+.main-content-wrapper {
+  padding-top: 15px;
+  padding-bottom: 25px;
+  margin: 0 auto;
 }

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import Stack from '@mui/material/Stack'
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -36,8 +39,8 @@ const Signup = () => {
         <div>
           <h4>Sign Up</h4>
           <div>
-            <form onSubmit={handleFormSubmit}>
-              <input
+            <Stack>
+              <TextField
                 placeholder='Username'
                 name='username'
                 type='username'
@@ -45,7 +48,7 @@ const Signup = () => {
                 value={formState.username}
                 onChange={handleChange}
               />
-              <input
+              <TextField
                 placeholder='Email address'
                 name='email'
                 type='email'
@@ -53,7 +56,7 @@ const Signup = () => {
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <TextField
                 placeholder='******'
                 name='password'
                 type='password'
@@ -61,10 +64,10 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button>
+              <Button variant="contained" size="small" onSubmit={handleFormSubmit}>
                 Register
-              </button>
-            </form>
+              </Button>
+            </Stack>
             {error && <div>Registration failed</div>}
           </div>
         </div>
