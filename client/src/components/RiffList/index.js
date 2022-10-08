@@ -9,6 +9,7 @@ const RiffsList = ({ riffs, title }) => {
     }
 function RiffList() {
     return (
+        <nav>
         <div>
             <h3>{title}</h3>
             {riffs &&
@@ -36,15 +37,8 @@ function RiffList() {
                     </div>
                 ))}
         </div>
+        </nav>
         
     );
-};
-    return(
-        <nav>
-            <ul>
-            </ul>
-
-        </nav>
-    )
-}
-export default RiffList
+}};
+export default RiffsList;
