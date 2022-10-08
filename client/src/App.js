@@ -39,13 +39,19 @@ function App() {
     palette: {
       type: 'light',
       primary: {
-        main: '#3f51b5',
+        main: '#303b47',
       },
       secondary: {
-        main: '#f50057',
+        main: '#66454f',
       },
-      background: {
-        default: '#82c561',
+      highlight: {
+        main: '#666445',
+      },
+      white: {
+        main: 'antiquewhite',
+      },
+      error: {
+        main: '#66454f',
       },
     },
     overrides: {
@@ -71,25 +77,25 @@ function App() {
         fontSize: '3.7rem',
       },
       body1: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       body2: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       button: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       caption: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       overline: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       subtitle2: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       subtitle1: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Open Sans',
       },
       h6: {
         fontFamily: 'Amatic SC',

@@ -1,11 +1,11 @@
 
 function Header() {
     return(
-        <nav>
+        <header>
             <ul>
             </ul>
 
-        </nav>
+        </header>
     )
 }
 export default Header
