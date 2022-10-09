@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
-import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -39,8 +39,12 @@ const Signup = () => {
         <div>
           <h4>Sign Up</h4>
           <div>
-            <Stack>
+          <Grid container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
               <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='Username'
                 name='username'
                 type='username'
@@ -49,6 +53,10 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='Email address'
                 name='email'
                 type='email'
@@ -57,6 +65,10 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='******'
                 name='password'
                 type='password'
@@ -64,10 +76,10 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <Button variant="contained" size="small" onSubmit={handleFormSubmit}>
+              <Button fullWidth InputProps={{ sx: { height: 80 } }} variant="contained" size="large" onSubmit={handleFormSubmit}>
                 Register
               </Button>
-            </Stack>
+            </Grid>
             {error && <div>Registration failed</div>}
           </div>
         </div>
