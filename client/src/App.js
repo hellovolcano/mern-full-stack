@@ -3,6 +3,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { setContext } from '@apollo/client/link/context';
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { Grid, Typography } from '@mui/material'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -33,9 +34,26 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+
+
 function App() {
 
   const theme = createTheme({
+    marginAutoContainer: {
+      width: 500,
+      height: 80,
+      display: 'flex'
+    },
+    marginAutoItem: {
+      margin: 'auto'
+    },
+    alignItemsAndJustifyContent: {
+      width: 500,
+      height: 80,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
     palette: {
       type: 'light',
       primary: {
@@ -123,6 +141,14 @@ function App() {
           <div className='flex-column justify-flex-start min-100-vh'>
             <Header />
             <div className='container'>
+              <Grid
+              item
+              container
+              justify="center"
+              alignItem="center"
+              direction="column"
+              style={{ minHeight: "100vh" }}>
+                <Typography>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={ <Login /> }/>
@@ -134,7 +160,8 @@ function App() {
                 <Route path="/poem/:id" element={ <SolitaryPoem /> }/>
                 <Route path ="*" element={ <NoMatch />} />
               </Routes>
-
+              </Typography>
+              </Grid>
             </div>
             <Footer />
           </div>

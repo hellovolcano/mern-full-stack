@@ -8,6 +8,10 @@
 }
 
 body {
+  background-image: url("./assets/images/AdobeStock_250065981.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
   width: 100%;
   margin: 0;
@@ -21,20 +25,14 @@ a {
 }
 
 /* Generic Heading Styles */
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Amatic SC', sans-serif;
-}
-
-h2 {
   font-size: 48px;
-  color: var(--white)
-}
-
-h3 {
-  font-size: 36px;
+  color: var(--black);
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 
 /* Header Styles */
 
@@ -88,4 +86,42 @@ nav ul li a {
   padding-top: 15px;
   padding-bottom: 25px;
   margin: 0 auto;
+}
+
+/* Form */
+button {
+  font-family: 'Amatic SC', sans-serif;
+}
+
+.main {
+  background-color: rgba(250, 235, 215, .9);
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.main h2 {
+  color: var(--primary-color);
+  margin-top: 15px;
+}
+
+/* CARDS */
+.card {
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.card-header {
+  color: var(--secondary);
+  margin: 0;
+  background-color: var(--dark);
+  padding: 0.625rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+.card-body {
+  padding: 2.5%;
+  font-size: 1.4rem;
 }

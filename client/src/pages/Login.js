@@ -4,7 +4,7 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
-import Stack from '@mui/material/Stack'
+import Grid from '@mui/material/Grid'
 
 
 const Login = (props) => {
@@ -38,12 +38,16 @@ const Login = (props) => {
 
   return (
     <main>
-      <div>
+      <div className='card'>
         <div>
-          <h3>Login</h3>
-          <div >
-            <Stack>
+          <h3 className='card-header'>Login</h3>
+          <div className='card-body'>
+            <Grid container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
               <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='Email address'
                 name='email'
                 type='email'
@@ -52,6 +56,10 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                fullwidth
+                spacing={5}
                 placeholder='******'
                 name='password'
                 type='password'
@@ -59,10 +67,16 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <Button variant="contained" size="small" type='submit' onSubmit={handleFormSubmit}>
+              <Button
+              fullWidth 
+              InputProps={{ sx: { height: 80 } }}
+              variant="contained" 
+              size="large" 
+              type='submit' 
+              onSubmit={handleFormSubmit}>
                 Submit
               </Button>
-              </Stack>
+              </Grid>
             {error && <div>Login failed</div>}
           </div>
         </div>
