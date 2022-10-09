@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import Stack from '@mui/material/Stack'
 
 
 const Login = (props) => {
@@ -39,8 +42,8 @@ const Login = (props) => {
         <div>
           <h3>Login</h3>
           <div >
-            <form onSubmit={handleFormSubmit}>
-              <input
+            <Stack>
+              <TextField
                 placeholder='Email address'
                 name='email'
                 type='email'
@@ -48,7 +51,7 @@ const Login = (props) => {
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <TextField
                 placeholder='******'
                 name='password'
                 type='password'
@@ -56,10 +59,10 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button type='submit'>
+              <Button variant="contained" size="small" type='submit' onSubmit={handleFormSubmit}>
                 Submit
-              </button>
-            </form>
+              </Button>
+              </Stack>
             {error && <div>Login failed</div>}
           </div>
         </div>
