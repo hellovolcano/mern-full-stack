@@ -38,10 +38,10 @@ const Login = (props) => {
 
   return (
     <main>
-      <div>
+      <div className='card'>
         <div>
-          <h3>Login</h3>
-          <div >
+          <h3 className='card-header'>Login</h3>
+          <div className='card-body'>
             <Grid container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
               <TextField
                 variant="filled"

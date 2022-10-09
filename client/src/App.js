@@ -39,6 +39,21 @@ const client = new ApolloClient({
 function App() {
 
   const theme = createTheme({
+    marginAutoContainer: {
+      width: 500,
+      height: 80,
+      display: 'flex'
+    },
+    marginAutoItem: {
+      margin: 'auto'
+    },
+    alignItemsAndJustifyContent: {
+      width: 500,
+      height: 80,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
     palette: {
       type: 'light',
       primary: {

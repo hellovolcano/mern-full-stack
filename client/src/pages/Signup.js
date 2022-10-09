@@ -35,10 +35,10 @@ const Signup = () => {
   
   return (
     <main>
-      <div>
+      <div className='card'>
         <div>
-          <h4>Sign Up</h4>
-          <div>
+          <h4 className='card-header'>Sign Up</h4>
+          <div className='card-body'>
           <Grid container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
               <TextField
                 variant="filled"
