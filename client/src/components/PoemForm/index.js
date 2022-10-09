@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POEM } from '../../utils/mutations';
-import { QUERY_POEM, QUERY_ME } from '../../utils/queries';
+import { QUERY_POEMS, QUERY_ME } from '../../utils/queries';
 
-const poemForm = () => {
+const PoemForm = () => {
     const [poemText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
     
