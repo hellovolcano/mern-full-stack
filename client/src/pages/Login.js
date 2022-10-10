@@ -42,7 +42,7 @@ const Login = (props) => {
         <div>
           <h3 className='card-header'>Login</h3>
           <div className='card-body'>
-            <Grid width="40%" container direction="column" alignItem="center" justify="ce ter" item style={{ border: "0.2px solid gray" }}>
+            <Grid width="40%" container direction="column" justify="center" style={{ border: "0.2px solid gray" }} component="form" onSubmit={handleFormSubmit}>
               <TextField
                 variant="filled"
                 style={{marginBottom: "1em" }}
@@ -57,6 +57,7 @@ const Login = (props) => {
               <TextField
                 variant="filled"
                 style={{marginBottom: "1em" }}
+                fullWidth
                 spacing={5}
                 placeholder='******'
                 name='password'
@@ -66,11 +67,11 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <Button
-              InputProps={{ sx: { height: 80 } }}
+              fullWidth 
+              sx={{ height: 80 }}
               variant="contained" 
               size="large" 
-              type='submit' 
-              onSubmit={handleFormSubmit}>
+              type="submit">
                 Submit
               </Button>
               </Grid>
