@@ -3,7 +3,7 @@ function PoemList() {
     return(
         <nav>
             <ul>
-                <li>PoemList</li>
+                <li>Poem List</li>
             </ul>
 
         </nav>
