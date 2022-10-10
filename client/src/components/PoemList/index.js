@@ -8,7 +8,7 @@ const PoemList = ({ poems, title }) => {
     };
 
     return (
-         <nav>
+         <div>
             <h3>{title}</h3> 
             {poems &&
             poems.map(poem => (
@@ -34,7 +34,7 @@ const PoemList = ({ poems, title }) => {
                     </div>
                 </div>      
             ))}      
-        </nav>
+        </div>
      );
 };
 
