@@ -39,7 +39,7 @@ const Signup = () => {
         <div>
           <h4 className='card-header'>Sign Up</h4>
           <div className='card-body'>
-          <Grid width="40%" container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
+          <Grid container direction="column" justify="center" style={{ border: "0.2px solid gray" }} component="form" onSubmit={handleFormSubmit}>
               <TextField
                 variant="filled"
                 style={{marginBottom: "1em" }}
@@ -76,7 +76,7 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <Button fullWidth InputProps={{ sx: { height: 80 } }} variant="contained" size="large" onSubmit={handleFormSubmit}>
+              <Button fullWidth sx={{ height: 80 }} variant="contained" size="large" type="submit">
                 Register
               </Button>
             </Grid>
