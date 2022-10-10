@@ -42,7 +42,7 @@ const Login = (props) => {
         <div>
           <h3 className='card-header'>Login</h3>
           <div className='card-body'>
-            <Grid container direction="column" justify="center" item style={{ border: "0.2px solid gray" }} component="form" onSubmit={handleFormSubmit}>
+            <Grid container direction="column" justify="center" style={{ border: "0.2px solid gray" }} component="form" onSubmit={handleFormSubmit}>
               <TextField
                 variant="filled"
                 style={{marginBottom: "1em" }}
