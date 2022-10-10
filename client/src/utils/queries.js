@@ -36,6 +36,7 @@ export const QUERY_POEM = gql`
   }
 `;
 
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
