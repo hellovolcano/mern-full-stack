@@ -10,18 +10,19 @@ const Nav = () => {
 
     return(
         <nav>
+            <ul>
             {Auth.loggedIn() ? (
                 <>
-                    <Link to="/profile">Me</Link>
+                    <li><Link to="/profile">Me</Link></li>
                     <a href="/" onClick={logout}>Logout</a>
                 </>
             ) : (
                 <>
-                    <Link to="/signup">Sign up</Link>
-                    <Link to="/login">Login</Link>
+                    <li><Link to="/signup">Sign up</Link></li>
+                    <li><Link to="/login">Login</Link></li>
                 </>
             )}
-            
+        </ul>    
             
             
         </nav>
