@@ -39,7 +39,7 @@ const Signup = () => {
         <div>
           <h4 className='card-header'>Sign Up</h4>
           <div className='card-body'>
-          <Grid container direction="column" justify="center" style={{ border: "0.2px solid gray" }} component="form" onSubmit={handleFormSubmit}>
+          <Grid width="40%" container direction="column" justify="center" style={{ border: "0.2px solid gray" }} component="form" onSubmit={handleFormSubmit}>
               <TextField
                 variant="filled"
                 style={{marginBottom: "1em" }}
