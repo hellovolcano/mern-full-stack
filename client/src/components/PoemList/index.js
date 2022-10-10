@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const PoemList = ({ poems, title }) => {
     if (!poems.length) {
         return <h3>No poems yet</h3>;
-}
+    };
 
     return (
          <nav>
             <h3>{title}</h3> 
             {poems &&
-            poems.map(thought => (
+            poems.map(poem => (
                 <div key={poem._id} className="card mb-3">
                     <p className="card-header">
                         <Link
