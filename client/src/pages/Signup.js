@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -32,12 +35,16 @@ const Signup = () => {
   
   return (
     <main>
-      <div>
+      <div className='card'>
         <div>
-          <h4>Sign Up</h4>
-          <div>
-            <form onSubmit={handleFormSubmit}>
-              <input
+          <h4 className='card-header'>Sign Up</h4>
+          <div className='card-body'>
+          <Grid container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
+              <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='Username'
                 name='username'
                 type='username'
@@ -45,7 +52,11 @@ const Signup = () => {
                 value={formState.username}
                 onChange={handleChange}
               />
-              <input
+              <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='Email address'
                 name='email'
                 type='email'
@@ -53,7 +64,11 @@ const Signup = () => {
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='******'
                 name='password'
                 type='password'
@@ -61,10 +76,10 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button>
+              <Button fullWidth InputProps={{ sx: { height: 80 } }} variant="contained" size="large" onSubmit={handleFormSubmit}>
                 Register
-              </button>
-            </form>
+              </Button>
+            </Grid>
             {error && <div>Registration failed</div>}
           </div>
         </div>
