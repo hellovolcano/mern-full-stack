@@ -11,7 +11,7 @@ const RiffList = ({ riffs }) => {
             {riffs &&
             riffs.map(riff => (
             <p className="pill mb-3" key={riff._id}>
-                {reaction.reactionBody} {'// '}
+                {riff.riffBody} {'// '}
                 <Link to={`/profile/${riff.username}`} style={{ fontWeight: 700 }}>
                 {riff.username} on {riff.createdAt}
                 </Link>

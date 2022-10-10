@@ -24,7 +24,7 @@ const PoemForm = () => {
           console.warn("First poem by this poet!")
         }
     
-        // update peom array cache
+        // update poem array cache
         const { poems } = cache.readQuery({ query: QUERY_POEMS });
         cache.writeQuery({
           query: QUERY_POEMS,
@@ -46,7 +46,7 @@ const PoemForm = () => {
       try {
         // add a poem to database
         await addPoem({
-          variables: { peomText }
+          variables: { poemText }
         });
     
         // clear form value
@@ -71,7 +71,7 @@ const PoemForm = () => {
         
             <textarea
             placeholder="Here's a new poem..."
-            value={peomText}
+            value={poemText}
             className="form-input col-12 col-md-9"
             onChange={handleChange}
             ></textarea>

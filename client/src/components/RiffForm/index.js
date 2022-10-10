@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_RIFF } from '../../utils/mutations';
 
-const RiffForm = ({ thoughtId }) => {
+const RiffForm = ({ poemId }) => {
     const [riffBody, setBody] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
     const [addRiff, { error }] = useMutation(ADD_RIFF);
@@ -20,7 +20,7 @@ const handleFormSubmit = async event => {
     try {
       // add riff to database
       await addRiff({
-        variables: { riffBody, peomId }
+        variables: { riffBody, poemId }
       });
   
       // clear form 
