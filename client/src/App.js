@@ -145,22 +145,21 @@ function App() {
               item
               container
               justify="center"
-              alignItem="center"
               direction="column"
               style={{ minHeight: "100vh" }}>
-                <Typography>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={ <Login /> }/>
-                <Route path="/signup" element={ <Signup /> }/>
-                <Route path="/profile">
-                  <Route path=":username" element={ <Profile /> } />
-                  <Route path="" element={ <Profile /> } />
-                </Route>
-                <Route path="/poem/:id" element={ <SolitaryPoem /> }/>
-                <Route path ="*" element={ <NoMatch />} />
-              </Routes>
-              </Typography>
+                <Typography component="div">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={ <Login /> }/>
+                    <Route path="/signup" element={ <Signup /> }/>
+                    <Route path="/profile">
+                      <Route path=":username" element={ <Profile /> } />
+                      <Route path="" element={ <Profile /> } />
+                    </Route>
+                    <Route path="/poem/:id" element={ <SolitaryPoem /> }/>
+                    <Route path ="*" element={ <NoMatch />} />
+                  </Routes>
+                </Typography>
               </Grid>
             </div>
             <Footer />
