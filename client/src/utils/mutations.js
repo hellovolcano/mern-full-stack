@@ -24,20 +24,6 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_FRIEND = gql`
-  mutation addFriend($id: ID!) {
-    addFriend(friendId: $id) {
-      _id
-      username
-      friendCount
-      friends {
-        _id
-        username
-      }
-    }
-  }
-`;
-
 export const ADD_POEM = gql`
   mutation addPoem($poemText: String!) {
     addThought(poemText: $thoughtText) {
