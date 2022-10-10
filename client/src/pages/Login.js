@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid'
 
 
 const Login = (props) => {
@@ -35,12 +38,16 @@ const Login = (props) => {
 
   return (
     <main>
-      <div>
+      <div className='card'>
         <div>
-          <h3>Login</h3>
-          <div >
-            <form onSubmit={handleFormSubmit}>
-              <input
+          <h3 className='card-header'>Login</h3>
+          <div className='card-body'>
+            <Grid container direction="column" alignItem="center" justify="center" item style={{ border: "0.2px solid gray" }}>
+              <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                spacing={5}
+                fullWidth
                 placeholder='Email address'
                 name='email'
                 type='email'
@@ -48,7 +55,11 @@ const Login = (props) => {
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <TextField
+                variant="filled"
+                style={{marginBottom: "1em" }}
+                fullwidth
+                spacing={5}
                 placeholder='******'
                 name='password'
                 type='password'
@@ -56,10 +67,16 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button type='submit'>
+              <Button
+              fullWidth 
+              InputProps={{ sx: { height: 80 } }}
+              variant="contained" 
+              size="large" 
+              type='submit' 
+              onSubmit={handleFormSubmit}>
                 Submit
-              </button>
-            </form>
+              </Button>
+              </Grid>
             {error && <div>Login failed</div>}
           </div>
         </div>

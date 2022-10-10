@@ -2,6 +2,8 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { setContext } from '@apollo/client/link/context';
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { Grid, Typography } from '@mui/material'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,7 +16,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
+  uri: 'http://localhost:3001/graphql'
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -32,13 +34,121 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+
+
 function App() {
+
+  const theme = createTheme({
+    marginAutoContainer: {
+      width: 500,
+      height: 80,
+      display: 'flex'
+    },
+    marginAutoItem: {
+      margin: 'auto'
+    },
+    alignItemsAndJustifyContent: {
+      width: 500,
+      height: 80,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#303b47',
+      },
+      secondary: {
+        main: '#66454f',
+      },
+      highlight: {
+        main: '#666445',
+      },
+      white: {
+        main: 'antiquewhite',
+      },
+      error: {
+        main: '#66454f',
+      },
+    },
+    overrides: {
+      MuiButton: {
+        root: {
+          background: 'linear-gradient(45deg, #66454f 30%, #303b47 90%)',
+          border: 0,
+          borderRadius: 3,
+          boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+          color: 'white',
+          height: 48,
+          padding: '0 30px',
+        },
+      },
+    },
+    typography: {
+      h1: {
+        fontFamily: 'Amatic SC',
+        fontSize: '6.2rem',
+      },
+      h2: {
+        fontFamily: 'Amatic SC',
+        fontSize: '3.7rem',
+      },
+      body1: {
+        fontFamily: 'Open Sans',
+      },
+      body2: {
+        fontFamily: 'Open Sans',
+      },
+      button: {
+        fontFamily: 'Open Sans',
+      },
+      caption: {
+        fontFamily: 'Open Sans',
+      },
+      overline: {
+        fontFamily: 'Open Sans',
+      },
+      subtitle2: {
+        fontFamily: 'Open Sans',
+      },
+      subtitle1: {
+        fontFamily: 'Open Sans',
+      },
+      h6: {
+        fontFamily: 'Amatic SC',
+        fontSize: '1.6rem',
+      },
+      h5: {
+        fontFamily: 'Amatic SC',
+        fontSize: '1.7rem',
+      },
+      h4: {
+        fontFamily: 'Amatic SC',
+        fontSize: '2.3rem',
+      },
+      h3: {
+        fontFamily: 'Amatic SC',
+        fontSize: '3.2rem',
+      },
+    },
+  })
+
   return (
     <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
       <Router>
           <div className='flex-column justify-flex-start min-100-vh'>
             <Header />
             <div className='container'>
+              <Grid
+              item
+              container
+              justify="center"
+              alignItem="center"
+              direction="column"
+              style={{ minHeight: "100vh" }}>
+                <Typography>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={ <Login /> }/>
@@ -50,13 +160,14 @@ function App() {
                 <Route path="/poem/:id" element={ <SolitaryPoem /> }/>
                 <Route path ="*" element={ <NoMatch />} />
               </Routes>
-
+              </Typography>
+              </Grid>
             </div>
             <Footer />
           </div>
       </Router>
-      
-    </ApolloProvider>  
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
 
