@@ -1,11 +1,40 @@
+import React from 'react';
+import { Link } from 'react-router-dom'
+import Auth from '../../utils/auth'
 
-function Header() {
-    return(
-        <header>
-            <ul>
-            </ul>
+const Header = () => {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
-        </header>
-    )
-}
-export default Header
+  return (
+    <header className="bg-secondary mb-4 py-2 flex-row align-center">
+      <div className="container flex-row justify-space-between-lg justify-center align-center">
+        <Link to="/">
+          <h1>Syntax</h1>
+        </Link>
+
+        <nav className="text-center">
+        <ul>
+            {Auth.loggedIn() ? (
+            <>
+              <li><Link to="/profile">Me</Link></li>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/signup">Signup</Link></li>
+            </>
+          )}
+        </ul>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
