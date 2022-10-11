@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const ADD_POEM = gql`
   mutation addPoem($poemText: String!) {
-    addThought(poemText: $thoughtText) {
+    addPoem(poemText: $poemText) {
       _id
       poemText
       createdAt

@@ -11,7 +11,6 @@ const PoemForm = () => {
     
     const [addPoem, { error }] = useMutation(ADD_POEM, {
       update(cache, { data: { addPoem } }) {
-    
           // may not exist yet, so wrap in a try/catch
         try {
           // update me array cache

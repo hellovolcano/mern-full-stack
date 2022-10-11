@@ -43,16 +43,10 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
-      friends {
-        _id
-        username
-      }
       poems {
         _id
         poemText
         createdAt
-        riffCount
       }
     }
   }
@@ -64,22 +58,17 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      friendCount
       poems {
         _id
         poemText
         createdAt
-        poemCount
+        riffCount
         riffs {
           _id
           createdAt
           riffBody
           username
         }
-      }
-      friends {
-        _id
-        username
       }
     }
   }
@@ -91,11 +80,6 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      friendCount
-      friends {
-        _id
-        username
-      }
     }
   }
 `;
