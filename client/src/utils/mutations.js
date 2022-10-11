@@ -31,6 +31,7 @@ export const ADD_POEM = gql`
       poemText
       createdAt
       username
+      riffCount
       riffs {
         _id
       }
@@ -42,6 +43,7 @@ export const ADD_RIFF = gql`
   mutation addRiff($poemId: ID!, $riffBody: String!) {
     addRiff(poemId: $poemId, riffBody: $riffBody) {
       _id
+      riffCount
       riffs {
         _id
         riffBody

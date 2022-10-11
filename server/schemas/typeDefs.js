@@ -6,6 +6,7 @@ const typeDefs = gql`
         poemText: String
         createdAt: String
         username: String
+        riffCount: Int
         riffs: [Riff]
     }
 

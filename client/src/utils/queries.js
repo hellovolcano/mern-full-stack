@@ -7,6 +7,7 @@ export const QUERY_POEMS = gql`
       poemText
       createdAt
       username
+      riffCount
       riffs {
         _id
         createdAt
@@ -24,6 +25,7 @@ export const QUERY_POEM = gql`
       poemText
       createdAt
       username
+      riffCount
       riffs {
         _id
         createdAt
@@ -60,6 +62,7 @@ export const QUERY_ME = gql`
         _id
         poemText
         createdAt
+        riffCount
         riffs {
           _id
           createdAt
