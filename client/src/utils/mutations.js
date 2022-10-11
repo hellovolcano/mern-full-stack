@@ -26,12 +26,11 @@ export const ADD_USER = gql`
 
 export const ADD_POEM = gql`
   mutation addPoem($poemText: String!) {
-    addThought(poemText: $thoughtText) {
+    addPoem(poemText: $poemText) {
       _id
       poemText
       createdAt
       username
-      riffCount
       riffs {
         _id
       }
@@ -43,7 +42,6 @@ export const ADD_RIFF = gql`
   mutation addRiff($poemId: ID!, $riffBody: String!) {
     addRiff(poemId: $poemId, riffBody: $riffBody) {
       _id
-      riffCount
       riffs {
         _id
         riffBody

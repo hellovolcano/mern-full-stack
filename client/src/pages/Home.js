@@ -7,12 +7,10 @@ import PoemForm from '../components/PoemForm';
 
 const Home = () => {
     const { loading, data } = useQuery(QUERY_POEMS);
-  
+    
     const poems = data?.poems || [];
-    console.log(poems);
-  
-    const loggedIn = Auth.loggedIn();
 
+    const loggedIn = Auth.loggedIn();
     return(
         <main>
             <div className='flex-row justify-space-between'>

@@ -6,7 +6,6 @@ const typeDefs = gql`
         poemText: String
         createdAt: String
         username: String
-        snapCount: Int
         riffs: [Riff]
     }
 
@@ -14,9 +13,7 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        friendCount: Int
         poems: [Poem]
-        friends: [User]
     }
 
     type Riff {
@@ -44,7 +41,6 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addPoem(poemText: String!): Poem
         addRiff(poemId: ID!, riffBody: String!): Poem
-        addFriend(friendId: ID!): User
     }
     `
 
