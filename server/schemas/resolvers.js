@@ -85,6 +85,35 @@ const resolvers = {
       }
       
       throw new AuthenticationError('You must be logged in!')
+    },
+    deletePoem: async( parent, { poemId }, context) => {
+      if (context.user) {
+        const poem = await Poem.findOneAndDelete({_id: poemId})
+
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: "63471a750726f16f99677e00"}, 
+          { $pull: { poems: { poemId: poem._id } } },
+          { new: true }
+        )
+
+        return updatedUser
+      }
+
+      throw new AuthenticationError('You cannot remove this art')
+    },
+    updatePoem: async ( parent, { poemId, poemText }, context) => {
+      if (context.user) {
+        const updatedPoem = await Poem.findOneAndUpdate(
+          { _id: poemId },
+          { poemText: poemText },
+          { new: true }
+        )
+
+        return updatedPoem
+      }
+
+      throw new AuthenticationError('You cannot change this.')
+
     }
   }
 }

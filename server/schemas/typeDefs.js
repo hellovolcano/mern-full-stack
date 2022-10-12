@@ -42,6 +42,8 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addPoem(poemText: String!): Poem
         addRiff(poemId: ID!, riffBody: String!): Poem
+        updatePoem(poemId: ID!, poemText: String!): Poem
+        deletePoem(poemId: ID!): User
     }
     `
 
