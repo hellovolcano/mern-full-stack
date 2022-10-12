@@ -1,6 +1,6 @@
 import React from 'react';
 
-const noMatch = () => {
+const NoMatch = () => {
     return(
         <div>
             Regrettably, that page does not exist. Not in this world, anyway.
@@ -8,4 +8,4 @@ const noMatch = () => {
     )
 }
 
-export default noMatch;
+export default NoMatch;
