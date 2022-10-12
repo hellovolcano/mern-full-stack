@@ -7,7 +7,9 @@ Click 'Sign Up' to enter username, email, and password. Once logged in, add a po
 A community for poets to share poems and start a conversation on the meaning of the poem or what the poem means to them. 
 
 
-## Screenshot 
+## Screenshot
+<img width="905" alt="Screen Shot 2022-10-12 at 4 25 09 PM" src="https://user-images.githubusercontent.com/102888399/195450900-86db1434-6a64-42df-9bbd-320d72d52428.png">
+
 
 ## Deployed Link
 https://secure-stream-79386.herokuapp.com/
