@@ -53,3 +53,16 @@ export const ADD_RIFF = gql`
     }
   }
 `;
+
+export const DELETE_POEM = gql`
+  mutation deletePoem($poemId: ID!) {
+    deletePoem(poemId: $poemId) {
+      username
+      poems {
+        _id
+        poemText
+        createdAt
+        riffCount
+      }
+    }
+  }`
