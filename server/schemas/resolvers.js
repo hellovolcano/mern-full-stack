@@ -8,8 +8,7 @@ const resolvers = {
             if (context.user) {
                const userData = await User.findOne({_id: context.user._id})
                 .select('-__v -password')
-                .populate('thoughts')
-                .populate('friends');
+                .populate('poems')
 
                 return userData; 
             }
@@ -21,17 +20,16 @@ const resolvers = {
       return User.find()
         .select('-__v -password')
         .populate('poems')
-        .populate('friends')
     },
     poems: async (parent, { username }) => {
-      const params = username ? { username}: {}
+      const params = username ? { username }: {}
       return Poem.find(params).sort({ createdAt: -1})
     },
     poem: async (parent, { _id }) => {
       return Poem.findOne({ _id })
     } 
   },
-  Mutation: { // TODO: pass in third argument "context" and wrap the mutations in an if statement
+  Mutation: { 
     addUser: async(parent, args) => {
       const user = await User.create(args)
       const token = signToken(user)
@@ -54,34 +52,34 @@ const resolvers = {
       const token = signToken(user)
       return { token, user }
   },
-    addPoem: async (parent, args) => {
-      const poem = await Poem.create({ ...args, username: 'tester'}) // hardcoded with local value
+    addPoem: async (parent, args, context) => {
+      if (context.user) {
+        const poem = await Poem.create({ ...args, username: context.user.username}) 
 
-      await User.findByIdAndUpdate(
-        {_id: '633b2df2e989704ae155ed46' }, // hardcoded with local value
-        {$push: { poems: poem._id} },
-        { new: true }
-      )
+        await User.findByIdAndUpdate(
+          {_id: context.user._id },
+          {$push: { poems: poem._id} },
+          { new: true }
+        )
+  
+        return poem
+      }
 
-      return poem
+      throw new AuthenticationError('You must be logged in!')
+      
     },
-    addRiff: async (parent, { poemId, riffBody }) => {
-      const updatedPoem = await Poem.findOneAndUpdate(
-        {_id: poemId },
-        { $push: { riffs: { riffBody, username: 'tester'}}},
-        { new: true }
-      )
-
-      return updatedPoem
-    },
-    addFriend: async ( parent, { friendId }) => {
-      const updatedUser = await User.findOneAndUpdate(
-        {_id: '633b2df2e989704ae155ed46'},
-        { $addToSet: { friends: friendId }},
-        { new: true }
-      ).populate('friends')
-
-      return updatedUser
+    addRiff: async (parent, { poemId, riffBody }, context) => {
+      if (context.user) {
+        const updatedPoem = await Poem.findOneAndUpdate(
+          {_id: poemId },
+          { $push: { riffs: { riffBody, username: context.user.username}}},
+          { new: true }
+        )
+  
+        return updatedPoem
+      }
+      
+      throw new AuthenticationError('You must be logged in!')
     }
   }
 }

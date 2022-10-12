@@ -28,6 +28,10 @@ const poemSchema = new Schema(
       }
 )
 
+poemSchema.virtual('riffCount').get(function() {
+    return this.riffs.length;
+  });
+
 const Poem = model('Poem', poemSchema)
 
 module.exports = Poem
