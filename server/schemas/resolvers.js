@@ -21,6 +21,11 @@ const resolvers = {
         .select('-__v -password')
         .populate('poems')
     },
+    user: async(parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('poems')
+    },
     poems: async (parent, { username }) => {
       const params = username ? { username }: {}
       return Poem.find(params).sort({ createdAt: -1})

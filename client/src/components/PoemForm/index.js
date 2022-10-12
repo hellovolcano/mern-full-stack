@@ -1,4 +1,6 @@
-
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
@@ -58,30 +60,37 @@ const PoemForm = () => {
     
 
   return (
-    <nav>
+    <>
         <div>
-
-        <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-        </p>
-
-        <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>
-        
-            <textarea
+          <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
+          Character Count: {characterCount}/280 {  }
+          {error && <span className="ml-2">Something went wrong...</span>}
+          </p>
+          <Box 
+          component="form"
+          onSubmit={handleFormSubmit}
+>
+            <TextField
+            multiline
+            rows={4}
             placeholder="Here's a new poem..."
             value={poemText}
-            className="form-input col-12 col-md-9"
-            onChange={handleChange}
-            ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
-
-        </form>
-        
+            fullWidth
+            sx={{
+              mb: 1
+            }}
+            variant="filled"
+            onChange={handleChange} />
+            <Button 
+            sx={{ 
+              height: 80
+             }}
+            variant="contained" 
+            size="large"
+            type="submit">Submit</Button>
+          </Box>
         </div>
-    </nav>
+    </>
   );
 };
 

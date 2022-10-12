@@ -5,6 +5,7 @@ import { QUERY_POEM } from '../utils/queries'
 import RiffList from '../components/RiffList'
 import RiffForm from '../components/RiffForm'
 import Auth from '../utils/auth'
+import Paper from '@mui/material/Paper'
 
 const SolitaryPoem = props => {
   const { id: poemId } = useParams()
@@ -21,17 +22,15 @@ const SolitaryPoem = props => {
 
   return (
     <div>
-      <div className="card mb-3">
+      <Paper>
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {poem.username}
           </span>{' '}
           poem on {poem.createdAt}
         </p>
-        <div className="card-body">
-          <p>{poem.poemText}</p>
-        </div>
-      </div>
+        <p className="card-body">{poem.poemText}</p>
+        </Paper>
       {poem.riffCount > 0 && <RiffList riffs={poem.riffs} /> }
       {Auth.loggedIn() && <RiffForm poemId={poem._id} />}
     </div>
