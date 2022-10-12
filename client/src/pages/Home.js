@@ -15,7 +15,7 @@ const Home = () => {
         <main>
             <div className='flex-row justify-space-between'>
                 {loggedIn && (
-                <div className='col-12 mb-3'>
+                <div className='col-12 col-lg-4 mb-3'>
                     <PoemForm />
                 </div>
                 )}

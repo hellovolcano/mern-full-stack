@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_RIFF } from '../../utils/mutations';
 
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
+
 const RiffForm = ({ poemId }) => {
     const [riffBody, setBody] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
@@ -37,19 +41,31 @@ const handleFormSubmit = async event => {
   Character Count: {characterCount}/280
   {error && <span className="ml-2">Something went wrong...</span>}
 </p>
-      <form className="flex-row justify-center justify-space-between-md align-stretch" 
-      onSubmit={handleFormSubmit}>
-        <textarea
-          placeholder="Leave a riff for this poem..."
-          value={riffBody}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
-
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
-      </form>
+  <Box 
+          component="form"
+          className="flex-row justify-center justify-space-between-md align-stretch"
+          onSubmit={handleFormSubmit}
+  >
+            <TextField
+            multiline
+            rows={4}
+            placeholder="Leave a riff for this poem..."
+            value={riffBody}
+            sx={{
+              width: 1,
+              mb: 1
+            }}
+            variant="filled"
+            className="form-input col-12 col-md-9"
+            onChange={handleChange} />
+            <Button 
+            sx={{ 
+              height: 80
+             }}
+            variant="contained" 
+            size="large"
+            type="submit">Submit</Button>
+          </Box>
     </div>
    );
 };

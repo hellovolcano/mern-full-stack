@@ -11,14 +11,16 @@ import Auth from '../utils/auth';
 
 const Profile = () => {
   const { username: userParam } = useParams();
+
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });  
 
   const user = data?.me || data?.user || {};
+  console.log(user)
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile:username" />;
+    return <Navigate to="/profile" />;
   }  
 
   if (loading) {
@@ -50,7 +52,7 @@ const Profile = () => {
       </div>
 
     </div>
-    <div className="mb-3">{!userParam && <PoemForm />}</div>
+    <div className="col-lg-4 mb-3">{!userParam && <PoemForm />}</div>
   </div>
   );
 };
