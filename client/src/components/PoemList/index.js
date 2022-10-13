@@ -5,6 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import React from "react";
 import { Link } from 'react-router-dom';
 
+const centered={
+    textAlign: 'center'
+}
+
 const PoemList = ({ poems, title }) => {
     if (!poems.length) {
         return <h3>No poems yet</h3>;
@@ -12,7 +16,7 @@ const PoemList = ({ poems, title }) => {
 
     return (
          <div>
-            <h3>{title}</h3> 
+            <h3 style={centered}>{title}</h3> 
             {poems &&
             poems.map(poem => (
                 <Card 
