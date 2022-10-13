@@ -9,13 +9,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header>
+      <div>
         <Link to="/">
           <h1>Syntax Poetry</h1>
         </Link>
-
-        <nav className="text-center">
+      </div>
+      <nav>
         <ul>
             {Auth.loggedIn() ? (
             <>
@@ -31,8 +31,7 @@ const Header = () => {
             </>
           )}
         </ul>
-        </nav>
-      </div>
+      </nav>
     </header>
   );
 };

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Open+Sans:wght@400;700&display=swap');
 
 :root {
   --primary-color: #303b47;
@@ -28,10 +28,22 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 72px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 /* Generic Heading Styles */
-h1, h2, h3, h4 {
+h2, h3, h4 {
   justify-content: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cedarville Cursive', cursive;
   font-size: 48px;
   color: var(--black);
   margin-top: 10px;
@@ -52,27 +64,29 @@ p {
 
 /* Header Styles */
 
-header h1 {
-  padding-left: 25px;
+header {
+  display: flex;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+header nav {
+  text-align: center;
 }
 
 /* Navigation Styles */
 nav {
-  display: flex;
-  justify-content: center;
   color: var(--black);
-  background-position: 80%;
-  background-size: cover;
-  background-attachment: fixed;
   padding-top: 15px;
-  flex-wrap: wrap;
 }
 
 nav ul {
   margin: 10px 20px 10px 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding-inline-start: 0px;
 }
 
 nav ul li {
@@ -321,18 +335,6 @@ button {
   font-size: 1.4rem;
 }
 
-/* Navigation Styles */
-nav {
-  display: flex;
-  justify-content: flex-start;
-  color: var(--black);
-  background-position: 80%;
-  background-size: cover;
-  background-attachment: fixed;
-  padding-top: 15px;
-  flex-wrap: wrap;
-}
-
 nav ul {
   margin: 10px 20px 10px 20px;
   display: flex;
@@ -355,7 +357,19 @@ ul li a {
 }
 
 nav ul li a {
-  color: var(--black)
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+nav ul li a:hover {
+  background-color: var(--white);
+  border-radius: 6px;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: none;
 }
 
 /* Styles for the footer */
@@ -368,8 +382,23 @@ footer {
   height: 50px;
 }
 
-/* col-lg */
+@media screen and (min-width: 770px) {
+  h1 {
+    padding-left: 25px;
+  }
+
+  header {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  header nav {
+    margin-top: 20px;
+    margin-right: 15px;
+  }
+}
 @media screen and (min-width: 992px) {
+
   nav {
     width: auto;
     justify-content: flex-end;
